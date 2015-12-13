@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <template source='TPL:admin.common.head' />
+</head>
+
+<body>
+    <div class="wrap">
+        <form method="post" class="J_ajaxForm" action="{@WindUrlHelper::createUrl('/app/dimdb/manage/dorun')}">
+            <div class="h_a">基本设置</div>
+            <div class="table_full">
+                <table width="100%">
+                    <col class="th" />
+                    <col width="400" />
+                    <col />
+                    <tr>
+                        <th>豆瓣 apikey</th>
+                        <td>
+                            <input name="doubankey" type="text" class="input length_5" value="{$config['app.dimdb.doubankey']}">
+                        </td>
+                        <td>
+                            <div class="fun_tips">豆瓣 API 请求频率限制为150次/分钟，设置 apikey 可以提高限制到 500次/分钟</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>OMDb API apikey</th>
+                        <td>
+                            <input name="omdbkey" type="text" class="input length_5" value="{$config['app.dimdb.omdbkey']}">
+                        </td>
+                        <td>
+                            <div class="fun_tips">设置 apikey 可以从 OMDb API 获取 IMDB 电影海报</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn_wrap">
+                <div class="btn_wrap_pd">
+                    <button class="btn btn_submit mr10 J_ajax_submit_btn" type="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <template source='TPL:admin.common.footer' />
+    <script>
+    var _li_html = '<li><span class="span_3"><input type="text" value="" class="input length_2" name="deniedfts[]"></span><span class="span_4"><a class="J_ul_list_remove" href="#">[删除]</a></span></li>';
+    </script>
+</body>
+
+</html>

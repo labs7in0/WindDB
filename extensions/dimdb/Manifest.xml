@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <application>
+        <name>WindDB</name>
+        <alias>dimdb</alias>
+        <version>1.0</version>
+        <pw-version>9.0</pw-version>
+        <description>IMDB / Douban DB 插件</description>
+        <logo>images/WindDB.png</logo>
+        <type>app</type>
+        <charset>UTF-8</charset>
+        <website>https://7in0.me</website>
+        <author-name>7IN0's Labs</author-name>
+        <author-email>me@7in0.me</author-email>
+        <author-icon>images/7in0.png</author-icon>
+    </application>
+    <res>res</res>
+    <inject-services>
+        <s_admin_menu>
+            <app_dimdb>
+                <class>EXT:dimdb.service.srv.App_Dimdb_ConfigDo</class>
+                <loadway>load</loadway>
+                <method>getAdminMenu</method>
+                <description>WindDBadmin menu</description>
+            </app_dimdb>
+        </s_admin_menu>
+    </inject-services>
+</manifest>
