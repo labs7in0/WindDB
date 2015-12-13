@@ -8,14 +8,14 @@
 <body>
     <div class="wrap">
         <form method="post" class="J_ajaxForm" action="{@WindUrlHelper::createUrl('/app/dimdb/manage/dorun')}">
-            <div class="h_a">基本设置</div>
+            <div class="h_a">Api Key</div>
             <div class="table_full">
                 <table width="100%">
                     <col class="th" />
                     <col width="400" />
                     <col />
                     <tr>
-                        <th>豆瓣 apikey</th>
+                        <th>豆瓣</th>
                         <td>
                             <input name="doubankey" type="text" class="input length_5" value="{$config['app.dimdb.doubankey']}">
                         </td>
@@ -24,7 +24,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>OMDb API apikey</th>
+                        <th>OMDb API</th>
                         <td>
                             <input name="omdbkey" type="text" class="input length_5" value="{$config['app.dimdb.omdbkey']}">
                         </td>
@@ -42,9 +42,6 @@
         </form>
     </div>
     <template source='TPL:admin.common.footer' />
-    <script>
-    var _li_html = '<li><span class="span_3"><input type="text" value="" class="input length_2" name="deniedfts[]"></span><span class="span_4"><a class="J_ul_list_remove" href="#">[删除]</a></span></li>';
-    </script>
 </body>
 
 </html>
