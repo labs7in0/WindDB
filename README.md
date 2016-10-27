@@ -5,9 +5,9 @@ WindDB
 
 **A plugin for PHPWind 9 to build an IMDB / Douban DB.**
 
-[![Downloads](https://img.shields.io/github/downloads/labs7in0/WindDB/total.svg)](https://github.com/labs7in0/WindDB/releases)
-[![Releases](https://img.shields.io/github/release/labs7in0/WindDB.svg)](https://github.com/labs7in0/WindDB/releases/latest)
-[![Releases Downloads](https://img.shields.io/github/downloads/labs7in0/WindDB/latest/total.svg)](https://github.com/labs7in0/WindDB/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/kinosang/WindDB/total.svg)](https://github.com/kinosang/WindDB/releases)
+[![Releases](https://img.shields.io/github/release/kinosang/WindDB.svg)](https://github.com/kinosang/WindDB/releases/latest)
+[![Releases Downloads](https://img.shields.io/github/downloads/kinosang/WindDB/latest/total.svg)](https://github.com/kinosang/WindDB/releases/latest)
 
 This extension is designed to work with PHPWind 9.x.
 
