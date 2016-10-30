@@ -6,7 +6,7 @@ Wind::import('WIND:cache.strategy.WindDbCache');
 
 class IndexController extends PwBaseController
 {
-    private function curl($url)
+    private function get($url)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -31,7 +31,7 @@ class IndexController extends PwBaseController
 
     public function run()
     {
-        $id = $this->getInput('id');
+        $id   = $this->getInput('id');
         $type = $this->getInput('type');
 
         $cache = new WindDbCache(Wind::getComponent('db'), array('table-name' => 'app_dimdb_cache', 'field-key' => 'cache_key', 'field-value' => 'cache_value', 'field-expire' => 'cache_expire', 'expires' => '3600'));
@@ -49,7 +49,7 @@ class IndexController extends PwBaseController
                         $url .= '?apikey=' . Wekit::C('site', 'app.dimdb.doubankey');
                     }
 
-                    $res = $this->curl($url);
+                    $res = $this->get($url);
                     break;
                 case 'movie':
                     // 影视
@@ -58,21 +58,21 @@ class IndexController extends PwBaseController
                         $url .= '?apikey=' . Wekit::C('site', 'app.dimdb.doubankey');
                     }
 
-                    $result = $this->curl($url);
+                    $result = $this->get($url);
 
                     $res = array(
-                        'title' => $result['title'],
-                        'year' => $result['year'],
-                        'genres' => $result['genres'],
+                        'title'     => $result['title'],
+                        'year'      => $result['year'],
+                        'genres'    => $result['genres'],
                         'directors' => array(),
-                        'writers' => array(),
-                        'actors' => array(),
-                        'summary' => $result['summary'],
+                        'writers'   => array(),
+                        'actors'    => array(),
+                        'summary'   => $result['summary'],
                         'languages' => $result['languages'],
-                        'country' => $result['countries'],
-                        'aka' => $result['aka'],
-                        'alt' => $result['alt'],
-                        'image' => $result['images']['large'],
+                        'country'   => $result['countries'],
+                        'aka'       => $result['aka'],
+                        'alt'       => $result['alt'],
+                        'image'     => $result['images']['large'],
                     );
 
                     if (is_array($result['directors'])) {
@@ -100,25 +100,25 @@ class IndexController extends PwBaseController
                         $url .= '?apikey=' . Wekit::C('site', 'app.dimdb.doubankey');
                     }
 
-                    $res = $this->curl($url);
+                    $res = $this->get($url);
                     break;
                 default:
                     $url = 'http://omdbapi.com/?i=' . $id;
 
-                    $result = $this->curl($url);
+                    $result = $this->get($url);
 
                     $res = array(
-                        'title' => $result['Title'],
-                        'year' => $result['Year'],
-                        'genres' => explode(', ', $result['Genre']),
+                        'title'     => $result['Title'],
+                        'year'      => $result['Year'],
+                        'genres'    => explode(', ', $result['Genre']),
                         'directors' => explode(', ', $result['Director']),
-                        'writers' => explode(', ', $result['Writer']),
-                        'actors' => explode(', ', $result['Actors']),
-                        'summary' => $result['Plot'],
+                        'writers'   => explode(', ', $result['Writer']),
+                        'actors'    => explode(', ', $result['Actors']),
+                        'summary'   => $result['Plot'],
                         'languages' => explode(', ', $result['Language']),
-                        'country' => explode(', ', $result['Country']),
-                        'aka' => array(),
-                        'alt' => 'http://imdb.com/title/' . $id,
+                        'country'   => explode(', ', $result['Country']),
+                        'aka'       => array(),
+                        'alt'       => 'http://imdb.com/title/' . $id,
                     );
 
                     if (!empty(Wekit::C('site', 'app.dimdb.omdbkey'))) {
